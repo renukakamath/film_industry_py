@@ -1,0 +1,67 @@
+{% extends 'member_index.html' %}
+{% block body %}
+<body>
+	<form method="post">
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Search Member</h1>
+			<tr>
+				<th>Member Name</th>
+
+				<td ><input type="text" name="name" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="search" class="btn btn-info"></td>
+			</tr>
+		</table>
+		{% if data['members'] %}
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Search Results</h1>
+				<th>Member Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Image</th>
+				{% for row in data['members'] %}
+				<tr>
+					<td>{{row['first_name']}}{{row['last_name']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['title']}}</td>
+					<td>{{row['descriptions']}}</td>
+					<td><img src="/{{row['image_path']}}" height="180" width="180"></td>
+					<td><a href="?action=hire&id={{row['member_id']}}" class="btn btn-info">Hire</td>
+	
+
+				</tr>
+				{% endfor %}
+
+		</table>
+		{% else %}
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Portfolio</h1>
+			<tr>
+				<th>Member Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Image</th>
+			</tr>
+			{% for row in data['portfolio'] %}
+			<tr>
+				<td>{{row['first_name']}}{{row['last_name']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>
+				<td>{{row['title']}}</td>
+				<td>{{row['descriptions']}}</td>
+				<td><img src="/{{row['image_path']}}" height="180" width="180"></td>
+				<td><a href="?action=hire&id={{row['member_id']}}" class="btn btn-info">Hire</td>
+			</tr>
+			{% endfor %}
+		</table>
+		{% endif %}
+	</form>
+
+</body>
+{% endblock %}

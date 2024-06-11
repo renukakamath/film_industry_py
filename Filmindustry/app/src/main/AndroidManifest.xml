@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.filmindustry">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Filmindustry"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".View_my_portfolio"
+            android:exported="false" />
+        <activity
+            android:name=".SendReviews"
+            android:exported="false" />
+        <activity
+            android:name=".MakePayment"
+            android:exported="false" />
+        <activity
+            android:name=".Viewhired"
+            android:exported="false" />
+        <activity
+            android:name=".ViewVacancies"
+            android:exported="false" />
+        <activity
+            android:name=".ViewAuditioncalls"
+            android:exported="false" />
+        <activity
+            android:name=".SendComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".ViewNotification"
+            android:exported="false" />
+        <activity
+            android:name=".CreatePortfolio"
+            android:exported="false" />
+        <activity
+            android:name=".Signuphome"
+            android:exported="false" />
+        <activity
+            android:name=".Userhome"
+            android:exported="false" />
+        <activity
+            android:name=".Ipsettings"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

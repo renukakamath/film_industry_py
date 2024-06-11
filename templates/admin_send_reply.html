@@ -1,0 +1,30 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+<body>
+	<form method="post" action="reply_complaints">
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Reply</h1>
+			<tr>
+				<th>Name</th>
+				<td>{{data['complaint'][0]['first_name']}}{{data['complaint'][0]['last_name']}}</td>
+			</tr>
+			<tr>
+				<th>Complaint</th>
+				<td>{{data['complaint'][0]['complaint_description']}}</td>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<td>{{data['complaint'][0]['date_time']}}</td>
+			</tr>
+			<tr>
+				<th>Reply</th>
+				<td><input type="text" name="reply" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit"></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+{% endblock %}

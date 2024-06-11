@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/img"
+    android:orientation="vertical"
+    tools:context=".Userhome">
+
+    <Button
+        android:id="@+id/CreatePortfolio"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Create Portfolio"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <Button
+        android:id="@+id/ViewNotification"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="View Notification"
+
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <Button
+        android:id="@+id/SendComplaint"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Send Complaint"
+
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="403dp" />
+
+<!--    <Button-->
+<!--        android:id="@+id/ViewAuditioncalls"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text="View Audition Calls"-->
+
+<!--        tools:layout_editor_absoluteX="148dp"-->
+<!--        tools:layout_editor_absoluteY="474dp" />-->
+
+    <Button
+        android:id="@+id/ViewVacancies"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="View Vacancies"
+
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="339dp" />
+
+    <Button
+        android:id="@+id/Viewhired"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="View Hired"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="532dp" />
+
+    <Button
+        android:id="@+id/MakePayment"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Make Payment"
+
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="577dp" />
+    <Button
+        android:id="@+id/SendReviews"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Send Reviews"
+
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="577dp" />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Logout"
+
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="577dp" />
+
+</LinearLayout>

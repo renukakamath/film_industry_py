@@ -1,0 +1,25 @@
+{% extends 'member_index.html' %}
+{% block body %}
+<body>
+			<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Hirings</h1>
+			<tr>
+				<th>Member Name</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Hired Date</th>
+	
+			{% for row in data['hire'] %}
+			<tr>
+				<td>{{row['first_name']}}{{row['last_name']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>
+				<td>{{row['date_time']}}</td>
+			
+		
+			</tr>
+			{% endfor %}
+		</table>
+
+</body>
+{% endblock %}

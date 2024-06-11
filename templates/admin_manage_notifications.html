@@ -1,0 +1,58 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+<body>
+	<form method="post">
+		{% if data['updater'] %}
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Upadte Notification</h1>
+			<tr>
+				<th>Title</th>
+				<td><input type="text" value="{{data['updater'][0]['title']}}" name="title"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><textarea name="description" class="form-control">{{data['updater'][0]['description']}}</textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit"  class="btn btn-success" name="update" value="update"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Add notifications</h1>
+			<tr>
+				<th>Title</th>
+				<td><input type="text" name="title" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><textarea name="description" class="form-control" required=""></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-success"></td>
+			</tr>
+		</table>
+		{% endif %}
+		<table align="center" class="table" style="width: 500px; "!important>
+			<h1 align="center">Notifications</h1>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Date</th>
+			</tr>
+			{% for row in data['notifications'] %}
+			<tr>
+				<td>{{row['title']}}</td>
+				<td>{{row['description']}}</td>
+				<td>{{row['date']}}</td>
+				<td><a href="?action=update&id={{row['notification_id']}}" class="btn btn-info">update</a></td>
+				<td><a href="?action=delete&id={{row['notification_id']}}" class="btn btn-danger">delete</a></td>
+
+			</tr>
+			{% endfor %}
+		</table>
+
+	</form>
+
+</body>
+{% endblock %}

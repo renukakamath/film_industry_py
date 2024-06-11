@@ -1,0 +1,81 @@
+{% extends 'member_index.html' %}
+{% block body %}
+<body>
+	<form method="post">
+		{% if data['updater'] %}
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Update</h1>
+			<tr>
+				<th>Title</th>
+				<td><input type="text" name="title" value="{{data['updater'][0]['title']}}"></td>
+			</tr>
+			<tr>
+				<th>Required Numbers</th>
+				<td><input type="number" name="number" value="{{data['updater'][0]['required_numbers']}}"></td>
+			</tr>
+			<tr>
+				<th>Venue</th>
+				<td><input type="text" name="venue" value="{{data['updater'][0]['venue']}}"></td>
+			</tr>
+			<tr>
+				<th>Date and Time</th>
+				<td><input type="datetime-local" name="date" value="{{data['updater'][0]['date_time']}}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="update" value="submit" class="btn btn-success"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Add Auditions</h1>
+			<tr>
+				<th>Title</th>
+				<td><input type="text" name="title" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Required Numbers</th>
+				<td><input type="text" name="number" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Venue</th>
+				<td><input type="text" name="venue" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Date and Time</th>
+				<td><input type="datetime-local" name="date" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-success"></td>
+			</tr>
+		</table>
+		{% endif %}
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Auditions</h1>
+			<tr>
+				<th>Title</th>
+				<th>Required Numbers</th>
+				<th>Venue</th>
+				<th>Date and Time</th>
+				<th>Status</th>
+
+			</tr>
+			{% for row in data['auditions'] %}
+			<tr>
+				<td>{{row['title']}}</td>
+				<td>{{row['required_numbers']}}</td>
+				<td>{{row['venue']}}</td>
+				<td>{{row['date_time']}}</td>
+				<td>{{row['audition_status']}}</td>
+				<td><a href="?action=update&id={{row['audition_id']}}" class="btn btn-info">update</a></td>
+				<td><a href="?action=delete&id={{row['audition_id']}}" class="btn btn-danger">delete</a></td>
+				{% if row['audition_status']=='upcoming' %}
+				<td><a href="?action=over&id={{row['audition_id']}}" class="btn btn-success">Audition Completed</a></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			
+		</table>
+	</form>
+
+</body>
+{% endblock %}

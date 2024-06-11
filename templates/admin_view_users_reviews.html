@@ -1,0 +1,31 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+<body>
+	<form method="post">
+		<table align="center" class="table" style="width: 800px">
+			<h1 align="center">Reviews</h1>
+			<tr>
+				<th>Member Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Date</th>
+
+			</tr>
+			{% for row in data['reviews'] %}
+			<tr>
+				<td>{{row['first_name']}}{{row['last_name']}}</td>
+				<td>{{row['email']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['review_title']}}</td>
+				<td>{{row['description']}}</td>
+				<td>{{row['date_time']}}</td>
+			</tr>
+			{% endfor %}
+			
+		</table>
+	</form>
+
+</body>
+{% endblock %}

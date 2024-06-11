@@ -1,0 +1,59 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+<body>
+	<form method="post">
+		{% if data['updater'] %}
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Upadte Industry Types</h1>
+			<tr>
+				<th>Name</th>
+				<td><input type="text" name="name" value="{{data['updater'][0]['type_name']}}"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><textarea name="description" class="form-control">{{data['updater'][0]['type_description']}}</textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="update" value="update" class="btn btn-success"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Add Industry Categories</h1>
+			<tr>
+				<th>Name</th>
+				<td><input type="text" name="name" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><textarea name="description" class="form-control" required=""></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-success"></td>
+			</tr>
+		</table>
+		{% endif %}
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Industry Types</h1>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				
+			</tr>
+			{% for row in data['types'] %}
+			<tr>
+				<td>{{row['type_name']}}</td>
+				<td>{{row['type_description']}}</td>
+				
+				<td><a href="?action=update&id={{row['type_id']}}" class="btn btn-info">update</a></td>
+				<td><a href="?action=delete&id={{row['type_id']}}" class="btn btn-danger">delete</a></td>
+
+			</tr>
+			{% endfor %}
+		</table>
+			
+
+	</form>
+
+</body>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'member_index.html' %}
+{% block body %}
+<body>
+	<form method="post">
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Send Complaints</h1>
+			<tr>
+				<th>Complaint</th>
+				<td><input type="text" name="complaint" required="" class="form-control"></td>
+
+			</tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-success"></td>
+		</table>
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Complaints</h1>
+			<tr>
+				<th>Complaint</th>
+				<th>Date</th>
+				<th>Reply</th>
+			</tr>
+			{% for row in data['complaints'] %}
+			<tr>
+				<td>{{row['complaint_description']}}</td>
+				<td>{{row['date_time']}}</td>
+				<td>{{row['reply_description']}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+
+</body>
+{% endblock %}

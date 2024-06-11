@@ -1,0 +1,129 @@
+{% extends 'member_index.html' %}
+{% block body %}
+<body>
+	<form method="post">
+		{% if data['application'] %}
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Applications</h1>
+			<tr>
+				<th>Applicant Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Image</th>
+				<th>Address</th>
+			
+				<th>Position Applied</th>
+				<th>No Of Vaccancy</th>
+				<th>Applied Date</th>
+
+			</tr>
+			{% for row in data['application'] %}
+				<tr>
+					<td>{{row['first_name']}} {{row['last_name']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['phone']}}</td>
+					<td><img src="/{{row['photo']}}" height="180" width="180"></td>
+					<td>{{row['house_name']}}<br>{{row['place']}}<br>{{row['pincode']}}</td>
+					<td>{{row['position_vacant']}}</td>
+					<td>{{row['no_of_vaccancy']}}</td>
+					<td>{{row['date_time']}}</td>
+					<td><a href="?action=hrr&id={{row['member_id']}}" class="btn btn-info">Hire</td>
+				</tr>
+			{% endfor %}
+		</table>
+		{% else %}
+		{% if data['updater'] %}
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Update Vaccancy</h1>
+
+			<tr>
+				<th>Industry Type</th>
+				<td>
+
+					<select name="type_id" class="form-control">
+						<option value="{{data['updater'][0]['type_id']}}">{{data['updater'][0]['type_name']}}</option>
+						{% for row in data['types'] %}
+							<option value="{{row['type_id']}}">{{row['type_name']}}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>Position</th>
+				<td><input type="text" value="{{data['updater'][0]['position_vacant']}}" name="position"></td>
+			</tr>
+			<tr>
+				<th>Details</th>
+				<td><input type="text" name="details" value="{{data['updater'][0]['details']}}"></td>
+			</tr>
+			<tr>
+				<th>No Of Vaccancy </th>
+				<td><input type="number" name="number" value="{{data['updater'][0]['no_of_vaccancy']}}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" name="update" value="submit" class="btn btn-success"></td>
+			</tr>
+		</table>
+		{% else %}
+		<table align="center" class="table" style="width: 500px">
+			<h1 align="center">Add Vaccancy</h1>
+			<tr>
+				<th>Industry Type</th>
+				<td>
+					<select name="type_id" class="form-control">
+						{% for row in data['types'] %}
+							<option value="{{row['type_id']}}">{{row['type_name']}}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Position</th>
+				<td><input type="text" name="position" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Details</th>
+				<td><input type="text" name="details" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>No Of Vaccancy</th>
+				<td><input type="number" name="number" required="" class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="submit" class="btn btn-success"></td>
+			
+			</tr>
+		</table>
+		{% endif %}
+		{% endif %}
+		<table align="center" class="table" style="width: 500px;">
+			<h1 align="center">Vaccancies</h1>
+			<tr>
+				<th>Insdustry Type</th>
+				<th>Position</th>
+				<th>No Of Vaccancies</th>
+				<th>Details</th>
+				<th>Date</th>
+				<th>Staus</th>
+			</tr>
+			{% for row in data['vaccancies'] %}
+			<tr>
+				<td>{{row['type_name']}}</td>
+				<td>{{row['position_vacant']}}</td>
+				<td>{{row['no_of_vaccancy']}}</td>
+				<td>{{row['details']}}</td>
+				<td>{{row['date_time']}}</td>
+				<td>{{row['vaccancy_status']}}</td>
+				<td><a href="?action=delete&id={{row['vaccancy_id']}}" class="btn btn-danger">Delete</a></td>
+				<td><a href="?action=update&id={{row['vaccancy_id']}}" class="btn btn-info">Update</a></td>
+				<td><a href="?action=application&id={{row['vaccancy_id']}}" class="btn btn-success">View Applications</a></td>
+				
+				
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+
+</body>
+{% endblock %}
